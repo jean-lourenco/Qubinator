@@ -1,24 +1,12 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 
 namespace Qubinator
 {
     public class Quber
     {
         public bool AllUpperCase { get; set; }
-
-        private void WriteHalfBoard(QuberMatrix matrix, string word, int offset = 0)
-        {
-            matrix.WriteWordToRow(word, offset);
-            matrix.WriteWordToColumn(word, offset);
-        }
-
-        private void WriteAllBoard(QuberMatrix matrix, string word, int offset = 0)
-        {
-            WriteHalfBoard(matrix, word, offset);
-
-            matrix.WriteWordToRowBackwards(word, word.Length + offset - 1);
-            matrix.WriteWordToColumnBackwards(word, word.Length + offset - 1);
-        }
 
         public string To2DSimple(string word)
         {
@@ -58,6 +46,34 @@ namespace Qubinator
             matrix.DrawIncrementingTimes('\\', new Point(word.Length, word.Length), offset - 1);
 
             return matrix.ToString();
+        }
+
+        public string ToFullTextOffset(string word)
+        {
+            var len = word.Length;
+            var baseWord = word + word;
+            var sb = new StringBuilder();
+
+            for (int i = 0; i < len; i++)
+            {
+                sb.AppendLine(String.Join("", baseWord.Skip(i).Take(len)));
+            }
+
+            return sb.ToString();
+        }
+
+        private void WriteHalfBoard(QuberMatrix matrix, string word, int offset = 0)
+        {
+            matrix.WriteWordToRow(word, offset);
+            matrix.WriteWordToColumn(word, offset);
+        }
+
+        private void WriteAllBoard(QuberMatrix matrix, string word, int offset = 0)
+        {
+            WriteHalfBoard(matrix, word, offset);
+
+            matrix.WriteWordToRowBackwards(word, word.Length + offset - 1);
+            matrix.WriteWordToColumnBackwards(word, word.Length + offset - 1);
         }
 
         private string Transform(string word)

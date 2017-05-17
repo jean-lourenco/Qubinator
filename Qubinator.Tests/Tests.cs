@@ -94,5 +94,28 @@ OTISAP  I
 
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void Qubinator_Should_Generate_Correct_Full_Offseted_Text()
+        {
+            var quber = new Quber();
+
+            var result = quber.ToFullTextOffset("BETELGEUSE");
+
+            var expected =
+@"BETELGEUSE
+ETELGEUSEB
+TELGEUSEBE
+ELGEUSEBET
+LGEUSEBETE
+GEUSEBETEL
+EUSEBETELG
+USEBETELGE
+SEBETELGEU
+EBETELGEUS
+";
+
+            Assert.Equal(expected, result);
+        }
     }
 }
