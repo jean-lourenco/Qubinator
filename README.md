@@ -60,7 +60,7 @@ Qubinator is a [Nuget Package](https://www.nuget.org/packages/Qubinator) that ca
 
 ## 3D
 
-This one is specially nice with long words:
+This one is especially nice with long words:
 ``` csharp
   Quber.To3D("INCONSTITUCIONAL");
   
