@@ -4,13 +4,11 @@ using System.Text;
 
 namespace Qubinator
 {
-    public class Quber
+    public static class Quber
     {
-        public bool AllUpperCase { get; set; }
-
-        public string To2DSimple(string word)
+        public static string To2DSimple(string word)
         {
-            word = Transform(word);
+            ValidateInput(word);
 
             var matrix = new QuberMatrix(word.Length);
 
@@ -19,9 +17,9 @@ namespace Qubinator
             return matrix.ToString();
         }
 
-        public string To2DFull(string word)
+        public static string To2DFull(string word)
         {
-            word = Transform(word);
+            ValidateInput(word);
 
             var matrix = new QuberMatrix(word.Length);
 
@@ -30,9 +28,9 @@ namespace Qubinator
             return matrix.ToString();
         }
 
-        public string To3D(string word)
+        public static string To3D(string word)
         {
-            word = Transform(word);
+            ValidateInput(word);
 
             var matrix = new QuberMatrix(GetBoardBoundaryFor3D(word));
             var offset = GetWordLengthByTwo(word);
@@ -48,8 +46,10 @@ namespace Qubinator
             return matrix.ToString();
         }
 
-        public string ToFullTextOffset(string word)
+        public static string ToFullTextOffset(string word)
         {
+            ValidateInput(word);
+
             var len = word.Length;
             var baseWord = word + word;
             var sb = new StringBuilder();
@@ -62,13 +62,22 @@ namespace Qubinator
             return sb.ToString();
         }
 
-        private void WriteHalfBoard(QuberMatrix matrix, string word, int offset = 0)
+        private static void ValidateInput(string word)
+        {
+            if (String.IsNullOrWhiteSpace(word))
+                throw new ArgumentNullException(nameof(word));
+
+            if (word.Length < 3)
+                throw new ArgumentException("Word must have at least 3 characters", nameof(word));
+        }
+
+        private static void WriteHalfBoard(QuberMatrix matrix, string word, int offset = 0)
         {
             matrix.WriteWordToRow(word, offset);
             matrix.WriteWordToColumn(word, offset);
         }
 
-        private void WriteAllBoard(QuberMatrix matrix, string word, int offset = 0)
+        private static void WriteAllBoard(QuberMatrix matrix, string word, int offset = 0)
         {
             WriteHalfBoard(matrix, word, offset);
 
@@ -76,22 +85,14 @@ namespace Qubinator
             matrix.WriteWordToColumnBackwards(word, word.Length + offset - 1);
         }
 
-        private string Transform(string word)
-        {
-            if (AllUpperCase)
-                word = word.ToUpper();
-
-            return word;
-        }
-
-        private int GetWordLengthByTwo(string word)
+        private static int GetWordLengthByTwo(string word)
         {
             var len = (int)Math.Floor((double)word.Length / 2);
 
             return  word.Length > 7 ? len - 1: len;
         }
 
-        private int GetBoardBoundaryFor3D(string word)
+        private static int GetBoardBoundaryFor3D(string word)
         {
             return GetWordLengthByTwo(word) + word.Length;
         }

@@ -7,9 +7,7 @@ namespace Qubinator.Tests
         [Fact]
         public void Qubinator_Should_Generate_Correct_2D_Simple_Board()
         {
-            var quber = new Quber();
-
-            var result = quber.To2DSimple("BATATINHA");
+            var result = Quber.To2DSimple("BATATINHA");
 
             var expected =
 @"BATATINHA
@@ -29,9 +27,7 @@ A
         [Fact]
         public void Qubinator_Should_Generate_Correct_2D_Full_Board()
         {
-            var quber = new Quber();
-
-            var result = quber.To2DFull("BATATINHA");
+            var result = Quber.To2DFull("BATATINHA");
 
             var expected =
 @"BATATINHA
@@ -51,9 +47,7 @@ AHNITATAB
         [Fact]
         public void Qubinator_Should_Generate_Correct_3D_Board_With_Long_Word()
         {
-            var quber = new Quber();
-
-            var result = quber.To3D("BATATINHA");
+            var result = Quber.To3D("BATATINHA");
 
             var expected =
 @"BATATINHA   
@@ -76,9 +70,7 @@ AHNITATAB  A
         [Fact]
         public void Qubinator_Should_Generate_Correct_3D_Board_With_Short_Word()
         {
-            var quber = new Quber();
-
-            var result = quber.To3D("PASITO");
+            var result = Quber.To3D("PASITO");
 
             var expected =
 @"PASITO   
@@ -98,9 +90,7 @@ OTISAP  I
         [Fact]
         public void Qubinator_Should_Generate_Correct_Full_Offseted_Text()
         {
-            var quber = new Quber();
-
-            var result = quber.ToFullTextOffset("BETELGEUSE");
+            var result = Quber.ToFullTextOffset("BETELGEUSE");
 
             var expected =
 @"BETELGEUSE
