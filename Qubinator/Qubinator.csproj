@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net40;netcoreapp1.0</TargetFrameworks>
     <PackageId>Qubinator</PackageId>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <Authors>Jean Lourenço</Authors>
     <Title>Qubinator</Title>
     <Description>It transforms words into cubes. Yep, that's it.</Description>
@@ -11,11 +11,7 @@
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/jean-lourenco/Qubinator</PackageProjectUrl>
     <PackageTags>string</PackageTags>
-    <PackageReleaseNotes>Quber now has static methods</PackageReleaseNotes>
+    <PackageReleaseNotes>ValueTuple dependency removed</PackageReleaseNotes>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.ValueTuple" Version="4.3.1" />
-  </ItemGroup>
 
 </Project>

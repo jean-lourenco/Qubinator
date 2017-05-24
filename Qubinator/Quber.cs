@@ -73,16 +73,16 @@ namespace Qubinator
 
         private static void WriteHalfBoard(QuberMatrix matrix, string word, int offset = 0)
         {
-            matrix.WriteWordToRow(word, offset);
-            matrix.WriteWordToColumn(word, offset);
+            matrix.WriteWordToRow(word, new Point(offset));
+            matrix.WriteWordToColumn(word, new Point(offset));
         }
 
         private static void WriteAllBoard(QuberMatrix matrix, string word, int offset = 0)
         {
             WriteHalfBoard(matrix, word, offset);
 
-            matrix.WriteWordToRowBackwards(word, word.Length + offset - 1);
-            matrix.WriteWordToColumnBackwards(word, word.Length + offset - 1);
+            matrix.WriteWordToRowBackwards(word, new Point(word.Length + offset - 1));
+            matrix.WriteWordToColumnBackwards(word, new Point(word.Length + offset - 1));
         }
 
         private static int GetWordLengthByTwo(string word)

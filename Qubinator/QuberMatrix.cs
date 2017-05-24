@@ -12,47 +12,44 @@ namespace Qubinator
             Board = new string[size, size];
         }
 
-        public string[,] WriteWordToRow(string word, int initialIndex)
+        public string[,] WriteWordToRow(string word, Point initialPosition)
         {
             return BaseBoardWrite(
                     word,
-                    initialIndex,
-                    (row, column) => (row, ++column));
+                    initialPosition,
+                    (position) => new Point(position.X, position.Y + 1));
         }
 
-        public string[,] WriteWordToRowBackwards(string word, int initialIndex)
+        public string[,] WriteWordToRowBackwards(string word, Point initialPosition)
         {
             return BaseBoardWrite(
                     word,
-                    initialIndex,
-                    (row, column) => (row, --column));
+                    initialPosition,
+                    (position) => new Point(position.X, position.Y - 1));
         }
 
-        public string[,] WriteWordToColumn(string word, int initialIndex)
+        public string[,] WriteWordToColumn(string word, Point initialPosition)
         {
             return BaseBoardWrite(
                     word,
-                    initialIndex,
-                    (row, column) => (++row, column));
+                    initialPosition,
+                    (position) => new Point(position.X + 1, position.Y));
         }
 
-        public string[,] WriteWordToColumnBackwards(string word, int initialIndex)
+        public string[,] WriteWordToColumnBackwards(string word, Point initialPosition)
         {
             return BaseBoardWrite(
                     word,
-                    initialIndex,
-                    (row, column) => (--row, column));
+                    initialPosition,
+                    (position) => new Point(position.X - 1, position.Y));
         }
 
-        private string[,] BaseBoardWrite(string word, int initialIndex, Func<int, int, ValueTuple<int, int>> increment)
+        private string[,] BaseBoardWrite(string word, Point position, Func<Point, Point> increment)
         {
-            var column = initialIndex;
-            var row = initialIndex;
-
             foreach (var letter in word)
             {
-                Board[row, column] = letter.ToString();
-                (row, column) = increment(row, column);
+                Board[position.X, position.Y] = letter.ToString();
+                position = increment(position);
             }
 
             return Board;

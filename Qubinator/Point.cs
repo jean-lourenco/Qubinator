@@ -11,6 +11,12 @@
             Y = y;
         }
 
+        public Point(int initialValue)
+        {
+            X = initialValue;
+            Y = initialValue;
+        }
+
         public Point Increment(int x = 1, int y = 1)
         {
             return new Point(X + x, Y + y);
