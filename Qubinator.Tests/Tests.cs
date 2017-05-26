@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace Qubinator.Tests
 {
@@ -106,6 +107,24 @@ EBETELGEUS
 ";
 
             Assert.Equal(expected, result);
+        }
+
+        [Fact] void Qubinator_Should_Throw_Exception_If_Word_Has_Less_Than_3_Letters()
+        {
+            string wordNull = null;
+            var word = "OI";
+
+            Assert.Throws<ArgumentNullException>(() => Quber.To2DFull(wordNull));
+            Assert.Throws<ArgumentException>(() => Quber.To2DFull(word));
+
+            Assert.Throws<ArgumentNullException>(() => Quber.To2DSimple(wordNull));
+            Assert.Throws<ArgumentException>(() => Quber.To2DSimple(word));
+
+            Assert.Throws<ArgumentNullException>(() => Quber.To3D(wordNull));
+            Assert.Throws<ArgumentException>(() => Quber.To3D(word));
+
+            Assert.Throws<ArgumentNullException>(() => Quber.ToFullTextOffset(wordNull));
+            Assert.Throws<ArgumentException>(() => Quber.ToFullTextOffset(word));
         }
     }
 }
