@@ -1,4 +1,20 @@
 # Qubinator
+
+```
+QUBINATOR
+U\      O\
+B \     T \
+I  QUBINATOR
+N  U    N  O
+A  B    I  T
+T  I    B  A
+O  N    U  N
+ROTANIBUQ  I
+ \ T     \ B
+  \O      \U
+   ROTANIBUQ
+```
+
 Qubinator is a [Nuget Package](https://www.nuget.org/packages/Qubinator) that can transform any string in all sorts of 'text cubes' you can imagine.
 
 ``` csharp
