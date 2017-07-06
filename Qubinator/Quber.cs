@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 
 namespace Qubinator
@@ -56,7 +55,7 @@ namespace Qubinator
 
             for (int i = 0; i < len; i++)
             {
-                sb.AppendLine(String.Join("", baseWord.Skip(i).Take(len)));
+                sb.AppendLine(String.Join("", baseWord.Substring(i, len)));
             }
 
             return sb.ToString();

@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.6;net40;netcoreapp1.0</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;net40;netcoreapp1.0</TargetFrameworks>
     <PackageId>Qubinator</PackageId>
-    <PackageVersion>1.0.3</PackageVersion>
+    <PackageVersion>1.0.4</PackageVersion>
     <Authors>Jean Lourenço</Authors>
     <Title>Qubinator</Title>
     <Description>It transforms words into cubes. Yep, that's it.</Description>
@@ -11,7 +11,7 @@
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/jean-lourenco/Qubinator</PackageProjectUrl>
     <PackageTags>string</PackageTags>
-    <PackageReleaseNotes>ValueTuple dependency removed</PackageReleaseNotes>
+    <PackageReleaseNotes>Now targeting netstandard 1.0 instead of 1.4</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
