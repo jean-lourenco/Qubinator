@@ -1,4 +1,4 @@
-# Qubinator
+# Qubinator [![Build Status](https://travis-ci.org/jean-lourenco/Qubinator.svg?branch=master)](https://travis-ci.org/jean-lourenco/Qubinator)
 
 ```
 QUBINATOR
