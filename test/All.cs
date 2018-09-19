@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Xunit;
 
 namespace Qubinator.Tests
 {
-    public class Tests
+    public class All
     {
         [Fact]
         public void Qubinator_Should_Generate_Correct_2D_Simple_Board()
@@ -109,7 +109,8 @@ EBETELGEUS
             Assert.Equal(expected, result);
         }
 
-        [Fact] void Qubinator_Should_Throw_Exception_If_Word_Has_Less_Than_3_Letters()
+        [Fact]
+        void Qubinator_Should_Throw_Exception_If_Word_Has_Less_Than_3_Letters()
         {
             string wordNull = null;
             var word = "OI";
