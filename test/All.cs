@@ -1,3 +1,4 @@
+using Qubinator.Lib;
 using System;
 using Xunit;
 

@@ -1,4 +1,4 @@
-﻿namespace Qubinator
+﻿namespace Qubinator.Lib
 {
     public struct Point
     {

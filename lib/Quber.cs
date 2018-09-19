@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Qubinator
+namespace Qubinator.Lib
 {
     public static class Quber
     {
